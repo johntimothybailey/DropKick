@@ -8,16 +8,6 @@
  *
  */
 
-.dk_options .disabled a {
-  color: #aaa;
-}
-.dk_options .disabled:hover a {
-  cursor: default;
-  background-color: #fff;
-  border-bottom-color: #999;
-  text-shadow: none;
-}
-
 /***** Begin Theme, feel free to edit in here! ******/
 
 /* One container to bind them... */
@@ -51,7 +41,7 @@
    */
   background-image: url('images/dk_arrows.png');
   background-repeat: no-repeat;
-  background-position: right center;
+  background-position: 90% center;
   border: 1px solid #ccc;
   color: #333;
   padding: 7px 45px 7px 10px;
@@ -198,9 +188,17 @@
   }
   .dk_options_inner {
     overflow: auto;
-    -webkit-overflow-scrolling:touch;
     position: relative;
   }
+
+.dk_touch .dk_options {
+  overflow: hidden;
+}
+
+.dk_touch .dk_options_inner {
+  max-height: none;
+  overflow: visible;
+}
 
 .dk_fouc select {
   position: relative;
