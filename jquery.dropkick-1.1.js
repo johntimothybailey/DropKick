@@ -179,6 +179,23 @@
     list.theme = newTheme;
   };
 
+  // Public method for opening the component.
+  //    Useful if needing to open the component via another behavior path other than component related UI.
+  // @example   $(".dropkick_target").dropkick("open"); // Open many at once matching the selector
+  // @example   $("#top_selector").dropkick("open");    // Open a single one; useful in validation situations
+  methods.open = function () {
+    var $dk = _getDKElement(this);
+    _openDropdown($dk);
+  };
+
+  // Public method for closing the component.
+  //    Useful if needing to close the component via another behavior path other than component related UI.
+  // @example   $(".dropkick_target").dropkick("close"); // Close all matching the selector
+  methods.close = function () {
+    var $dk = _getDKElement(this);
+    _closeDropdown($dk);
+  };
+
   // Reset all <selects and dropdowns in our lists array
   methods.reset = function () {
     for (var i = 0, l = lists.length; i < l; i++) {
@@ -319,6 +336,13 @@
       }
       $dk.data('dropkick', data);
     }
+  }
+
+  // Get the related dropkick element. Useful for reducing repeated code.
+  function _getDKElement(scope) {
+    var $select   = $(scope),
+      list      = $select.data('dropkick');
+    return list.$dk;
   }
 
   // Update the <select> value, and the dropdown label
